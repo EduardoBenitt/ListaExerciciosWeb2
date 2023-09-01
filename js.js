@@ -44,3 +44,34 @@ for (let i = 0; i < linhas.length; i++) {
         
     });
 }
+
+
+const redacaoTextArea = document.getElementById('redacao');
+const restamSpan = document.getElementById('restam');
+
+redacaoTextArea.addEventListener('input', function() {
+    const maxCaracteres = 150;
+    const texto = redacaoTextArea.value;
+    const caracteresDigitados = texto.length;
+
+    if (caracteresDigitados > maxCaracteres) {
+        // Limita o texto a 150 caracteres
+        redacaoTextArea.value = redacaoTextArea.value.substring(0, maxCaracteres);
+        
+    }
+
+    restamSpan.textContent = `${caracteresDigitados}/${maxCaracteres}`;
+});
+
+redacaoTextArea.addEventListener('blur', function() {
+    const maxCaracteres = 150;
+    const texto = redacaoTextArea.value;
+    const caracteresDigitados = texto.length;
+
+    if (caracteresDigitados > maxCaracteres) {
+        // Limita o texto a 150 caracteres
+        redacaoTextArea.value = redacaoTextArea.value.substring(0, maxCaracteres);
+    }
+
+    restamSpan.innerHTML = `${caracteresDigitados}/${maxCaracteres}`;
+});
