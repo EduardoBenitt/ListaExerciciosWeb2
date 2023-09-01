@@ -57,7 +57,7 @@ redacaoTextArea.addEventListener('input', function() {
     if (caracteresDigitados > maxCaracteres) {
         // Limita o texto a 150 caracteres
         redacaoTextArea.value = redacaoTextArea.value.substring(0, maxCaracteres);
-        
+        caracteresDigitados = maxCaracteres;
     }
 
     restamSpan.textContent = `${caracteresDigitados}/${maxCaracteres}`;
@@ -75,3 +75,6 @@ redacaoTextArea.addEventListener('blur', function() {
 
     restamSpan.innerHTML = `${caracteresDigitados}/${maxCaracteres}`;
 });
+
+
+const resultadoCheckbox = document.getElementById('resultado')
