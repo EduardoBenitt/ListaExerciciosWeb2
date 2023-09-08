@@ -75,3 +75,18 @@ redacaoTextArea.addEventListener('blur', function() {
 
     restamSpan.innerHTML = `${caracteresDigitados}/${maxCaracteres}`;
 });
+
+
+const resultadoSpan = document.getElementById('resultado');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        let soma = 0;
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                soma += parseInt(checkbox.value);
+            }
+        });
+        resultadoSpan.textContent = soma;
+    });
+});
